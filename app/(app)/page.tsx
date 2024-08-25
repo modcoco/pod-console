@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { useTheme } from 'next-themes';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-export default function IndexPage() {
-  const { setTheme } = useTheme();
+import 'github-markdown-css/github-markdown.css';
+
+function IndexPage() {
   const [markdownContent, setMarkdownContent] = useState('');
 
   useEffect(() => {
@@ -18,9 +17,7 @@ export default function IndexPage() {
 
   return (
     <div className="container relative">
-      <div className="overflow-hidden rounded-lg bg-background shadow border border-2 border-black">
-        <Button onClick={() => setTheme("light")}>Light</Button>
-        <Button onClick={() => setTheme("dark")}>Dark</Button>
+      <div className="overflow-hidden rounded-lg bg-background markdown-body">
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {markdownContent}
         </ReactMarkdown>
@@ -28,3 +25,5 @@ export default function IndexPage() {
     </div>
   );
 }
+
+export default IndexPage;
