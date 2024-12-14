@@ -1,10 +1,6 @@
-import { LoginForm } from "@/components/login-form"
+import TwoColumn from "@/components/login/two-column-login-page";
 export function Page() {
-  return (
-    <div className="flex h-screen w-full items-center justify-center px-4">
-      <LoginForm />
-    </div>
-  )
+  return <TwoColumn />;
 }
 
-export default Page
+export default Page;
